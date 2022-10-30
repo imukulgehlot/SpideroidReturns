@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.SharedPrefFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:gravity="center"
+            android:background="@drawable/rounded_linear"
+            android:backgroundTint="@color/white"
+            android:id="@+id/tvTexttoProtect"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:hint="A bunch of random words would work"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="@dimen/_40sdp"
+                android:drawableRight="@drawable/ic_baseline_exit_to_app_24"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:background="@drawable/rounded_linear" />
+
+            <Button
+                android:id="@+id/buttonExit"
+                android:layout_width="@dimen/_40sdp"
+                android:drawableEnd="@drawable/ic_baseline_save_24"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/rounded_linear" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
