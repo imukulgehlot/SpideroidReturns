@@ -1,5 +1,7 @@
 package com.example.spideroidreturns.Activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -11,12 +13,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.spideroidreturns.Fragment.FragmentationHomeFragment;
 import com.example.spideroidreturns.Fragment.ImplicitIntentFragment;
 import com.example.spideroidreturns.Fragment.NotificationFragment;
 import com.example.spideroidreturns.Fragment.SharedPrefFragment;
 import com.example.spideroidreturns.R;
 
 public class HomeItemActivity extends AppCompatActivity {
+    Context context = HomeItemActivity.this;
 
     @Override
 
@@ -30,24 +34,38 @@ public class HomeItemActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (getIntent() != null) {
-            int position = getIntent().getIntExtra("position",99);
+            int position = getIntent().getIntExtra("position", 99);
 
-            switch (position){
-                case 0: AddFragment(new ImplicitIntentFragment());
-                toolbar.setSubtitle("Implict Intents");
-                break;
+            switch (position) {
+                case 0:
+                    AddFragment(new ImplicitIntentFragment());
+                    toolbar.setSubtitle("Implict Intents");
+                    break;
 
-                case 1: AddFragment(new NotificationFragment());
-                toolbar.setTitle("Notifyin You Again");
-                break;
+                case 1:
+                    AddFragment(new NotificationFragment());
+                    toolbar.setSubtitle("Notifyin You Again");
+                    break;
 
-                case 2: AddFragment(new SharedPrefFragment());
-                toolbar.setTitle("Shared Prefs");
-                break;
+                case 2:
+                    AddFragment(new SharedPrefFragment());
+                    toolbar.setSubtitle("Shared Prefs");
+                    break;
 
-                default:  Toast.makeText(getApplicationContext(), "neah, not in existence yet", Toast.LENGTH_SHORT).show();
+                case 3:
+                    AddFragment(new FragmentationHomeFragment());
+                    toolbar.setSubtitle("Fragz");
+                    break;
+                case 4:
+                    startActivity(new Intent(context, DataBumActivity.class));
+                    finish();
+                    break;
+
+                default:
+                    Toast.makeText(getApplicationContext(), "neah, not in existence yet", Toast.LENGTH_SHORT).show();
             }
         }
+
     }
 
     public void AddFragment(Fragment fragment) {

@@ -1,7 +1,13 @@
 package com.example.spideroidreturns.Activity;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -34,12 +40,14 @@ public class HomeActivity extends AppCompatActivity {
         findViews();
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
-
+        notifer();
 
         arrHomeItems.add(new HomeItemsModel("Implicit Intent"));
         arrHomeItems.add(new HomeItemsModel("Notifications"));
         arrHomeItems.add(new HomeItemsModel("Shared Preferences"));
+        arrHomeItems.add(new HomeItemsModel("Fragmentation"));
         arrHomeItems.add(new HomeItemsModel("SQLite Database"));
+        arrHomeItems.add(new HomeItemsModel("Geocoder"));
         arrHomeItems.add(new HomeItemsModel("Media Player"));
         arrHomeItems.add(new HomeItemsModel("Sensors"));
         arrHomeItems.add(new HomeItemsModel("Services"));
@@ -56,6 +64,38 @@ public class HomeActivity extends AppCompatActivity {
         rvHomeItems.setLayoutManager(new GridLayoutManager(context, 2));
         rvHomeItems.setAdapter(recyclerHomeItemsAdapter);
     }
+
+    private void notifer() {
+        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        Notification notification;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notification = new Notification.Builder(context)
+                    .setSmallIcon(R.drawable.ic_spidroid)
+                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.img_amazeman))
+                    .setSubText("Sub Text")
+                    .setContentTitle("Content Title")
+                    .setContentText("Content Text")
+                    .setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context, TabLayoutActivity.class),
+                            PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT))
+                    .setChannelId("CID")
+                    .build();
+            nm.createNotificationChannel(new NotificationChannel("CID", "Aapano Channel Hai Saa", NotificationManager.IMPORTANCE_DEFAULT));
+        } else {
+            notification = new Notification.Builder(context)
+                    .setSmallIcon(R.drawable.ic_spidroid)
+                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.img_amazeman))
+                    .setSubText("Sub Text")
+                    .setContentTitle("Content Title")
+                    .setContentText("Content Text")
+                    .setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context, TabLayoutActivity.class),
+                            PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT))
+                    .build();
+        }
+        nm.notify(0, notification);
+    }
+
 
     private void findViews() {
         rvHomeItems = findViewById(R.id.recyclerHomeMenu);
@@ -81,5 +121,6 @@ public class HomeActivity extends AppCompatActivity {
         }
         super.onBackPressed();
     }
+
 
 }

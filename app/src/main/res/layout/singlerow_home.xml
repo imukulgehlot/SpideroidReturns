@@ -2,10 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/_142sdp"
+    android:layout_height="@dimen/_77sdp"
     android:paddingLeft="@dimen/_10sdp"
     android:paddingTop="@dimen/_10sdp"
-    android:paddingRight="@dimen/_10sdp"
-    android:layout_height="@dimen/_77sdp">
+    android:paddingRight="@dimen/_10sdp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewHomeItem"
@@ -24,12 +24,13 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
+                android:justificationMode="inter_word"
                 android:paddingLeft="@dimen/_7sdp"
-                android:textStyle="bold"
                 android:paddingRight="@dimen/_7sdp"
                 android:text="Notifications"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.FragmentationHomeFragment">
+
+
+    <Button
+        android:id="@+id/buttonTabLayout"
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@drawable/rounded_linear"
+        android:text="Tab Layout"
+        app:layout_constraintBottom_toTopOf="@+id/btnBottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+    <Button
+        android:id="@+id/btnBottomNavigation"
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@drawable/rounded_linear"
+        android:text="Bottom Navigation"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNavigationDrawer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTabLayout" />
+
+    <Button
+        android:id="@+id/buttonNavigationDrawer"
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/rounded_linear"
+        android:text="Navigation Drawer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBottomNavigation" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

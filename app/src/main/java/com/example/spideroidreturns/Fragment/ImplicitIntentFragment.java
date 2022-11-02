@@ -1,5 +1,6 @@
 package com.example.spideroidreturns.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ public class ImplicitIntentFragment extends Fragment {
         // Required empty public constructor
     }
 
+    Context context = getContext();
     Button buttonSms;
     Button buttonCall;
     Button buttonEmail;
@@ -46,17 +48,25 @@ public class ImplicitIntentFragment extends Fragment {
 
 
         buttonSms.setOnClickListener(v -> {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("sms: " + phoneNumber)).putExtra("sms_body", "Maine abhi aapse sampark karne ki koshish ki, kripya turant call karein!"));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("sms: " + phoneNumber))
+                    .putExtra("sms_body",
+                            "Maine abhi aapse sampark karne ki koshish ki, " +
+                                    "kripya turant call karein!"));
         });
 
 
         buttonEmail.setOnClickListener(v -> {
+            Intent selectorIntent = new Intent(Intent.ACTION_SENDTO);
+            selectorIntent.setData(Uri.parse("mailto: "));
+
             Intent iMail = new Intent(Intent.ACTION_SEND);
-            iMail.setType("message/rfc822");
             iMail.putExtra(Intent.EXTRA_EMAIL, new String[]{"imukulgehlot@gmail.com", "support@google.com"});
             iMail.putExtra(Intent.EXTRA_SUBJECT, "Hey there, leave!");
-            iMail.putExtra(Intent.EXTRA_TEXT, "1\n2\n3\n4\nGrab the disco dancer");
+            iMail.putExtra(Intent.EXTRA_TEXT, "Grab the disco dancer");
+            iMail.setSelector(selectorIntent);
+
             startActivity(Intent.createChooser(iMail, "Send Email via"));
+
         });
 
         buttonShare.setOnClickListener(v -> {
