@@ -35,11 +35,12 @@
         android:id="@+id/tvProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="14"
         android:text="Apple iPhone 14 Pro Max"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.100000024" />
@@ -73,10 +74,10 @@
                 android:textColor="@color/white" />
 
             <ImageView
-                android:paddingLeft="@dimen/_2sdp"
-                android:paddingTop="@dimen/_2sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/_2sdp"
+                android:paddingTop="@dimen/_2sdp"
                 android:src="@drawable/ic_baseline_star_24" />
         </LinearLayout>
 
@@ -87,7 +88,7 @@
         android:id="@+id/tvFalsePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="43999"
+        android:text="₹ 43999"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/cardView2"
         app:layout_constraintTop_toBottomOf="@+id/cardView2"
@@ -97,7 +98,7 @@
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$40000"
+        android:text="$ 40000"
         app:layout_constraintBottom_toBottomOf="@+id/tvFalsePrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
@@ -105,23 +106,26 @@
         app:layout_constraintTop_toTopOf="@+id/tvFalsePrice" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardFavorite"
         android:layout_width="@dimen/_24sdp"
         android:layout_height="@dimen/_24sdp"
         app:cardCornerRadius="@dimen/_15sdp"
-        app:cardElevation="@dimen/_10sdp"
+        app:cardElevation="@dimen/_3sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toEndOf="@+id/tvProductName"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.120000005">
 
         <ImageView
+            android:id="@+id/imgFavorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/_6sdp"
-            android:background="@drawable/ic_heart_red" />
+            android:background="@drawable/ic_heart_red"
+            android:backgroundTint="@color/colorPrimary" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -141,7 +145,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/_3sdp"
-        app:cardElevation="@dimen/_5sdp"
+        app:cardElevation="@dimen/_3sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

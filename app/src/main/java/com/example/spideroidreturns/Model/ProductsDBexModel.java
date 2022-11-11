@@ -1,13 +1,33 @@
 package com.example.spideroidreturns.Model;
 
+import android.graphics.Bitmap;
+
 public class ProductsDBexModel {
     int id;
     int review;
     int false_price;
     int price;
+    int isFavorite;
     String product_name;
     String feature1;
     String feature2;
+    Bitmap bitmapProductImage;
+
+    public int getIsFavorite() {
+        return isFavorite;
+    }
+
+    public void setIsFavorite(int isFavorite) {
+        this.isFavorite = isFavorite;
+    }
+
+    public Bitmap getBitmapProductImage() {
+        return bitmapProductImage;
+    }
+
+    public void setBitmapProductImage(Bitmap bitmapProductImage) {
+        this.bitmapProductImage = bitmapProductImage;
+    }
 
     public int getId() {
         return id;

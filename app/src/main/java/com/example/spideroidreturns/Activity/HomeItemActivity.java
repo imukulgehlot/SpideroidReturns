@@ -14,10 +14,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.spideroidreturns.Fragment.FragmentationHomeFragment;
+import com.example.spideroidreturns.Fragment.GeoCoderFragment;
 import com.example.spideroidreturns.Fragment.ImplicitIntentFragment;
 import com.example.spideroidreturns.Fragment.NotificationFragment;
 import com.example.spideroidreturns.Fragment.SharedPrefFragment;
+import com.example.spideroidreturns.Fragment.WebViewFragment;
 import com.example.spideroidreturns.R;
+import com.example.spideroidreturns.Service.MPlayerServices;
 
 public class HomeItemActivity extends AppCompatActivity {
     Context context = HomeItemActivity.this;
@@ -60,6 +63,17 @@ public class HomeItemActivity extends AppCompatActivity {
                     startActivity(new Intent(context, DataBumActivity.class));
                     finish();
                     break;
+                case 5:
+                    AddFragment(new GeoCoderFragment());
+                    toolbar.setSubtitle("Geograprogrammingcoder");
+                    break;
+                case 6:
+                    AddFragment(new WebViewFragment());
+                    toolbar.setSubtitle("Main hoon web");
+                    break;
+                case 7:
+
+                    break;
 
                 default:
                     Toast.makeText(getApplicationContext(), "neah, not in existence yet", Toast.LENGTH_SHORT).show();
@@ -86,4 +100,6 @@ public class HomeItemActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".AddProductActivity">
+    tools:context=".Activity.AddProductActivity"
+    android:importantForAutofill="noExcludeDescendants">
 
 
     <ImageView
         android:id="@+id/imgViewCloseWindow"
-        android:layout_width="@dimen/_25sdp"
-        android:layout_height="@dimen/_25sdp"
+        android:layout_width="@dimen/_21sdp"
+        android:layout_height="@dimen/_21sdp"
         android:padding="@dimen/_6sdp"
         android:src="@drawable/ic_cross"
         app:layout_constraintBottom_toTopOf="@+id/cardView4"
@@ -46,7 +47,7 @@
         android:id="@+id/cardView4"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
-        app:cardBackgroundColor="#AEB4D8"
+        app:cardBackgroundColor="#BDC2E3"
         app:cardCornerRadius="@dimen/_50sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,13 +59,13 @@
             android:id="@+id/imageViewProductImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/_20sdp"
+            android:padding="30dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_baseline_add_a_photo_24" />
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvLocality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add a photo"
@@ -73,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView4" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add product details"
@@ -92,8 +93,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocality"
         app:layout_constraintVertical_bias="0.25">
+
+        <EditText
+            android:id="@+id/editTextProductName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:background="@drawable/edittext_border"
+            android:ems="15"
+            android:hint="Product Name"
+            android:inputType="text"
+            android:paddingLeft="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextProductReview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView4"
+            app:layout_constraintVertical_bias="0.23000002"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_goneMarginLeft="@dimen/_10sdp" />
 
         <EditText
             android:id="@+id/editTextProductReview"
@@ -124,34 +142,17 @@
             tools:layout_editor_absoluteX="8dp" />
 
         <EditText
-            android:id="@+id/editTextProductName"
+            android:id="@+id/editTextPrice"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:layout_marginBottom="@dimen/_15sdp"
             android:background="@drawable/edittext_border"
             android:ems="15"
-            android:hint="Product Name"
-            android:inputType="text"
+            android:hint="Price"
+            android:inputType="number"
             android:paddingLeft="@dimen/_10sdp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextProductReview"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView4"
-            app:layout_constraintVertical_bias="0.23000002"
-            app:layout_constraintVertical_chainStyle="spread"
-            app:layout_goneMarginLeft="@dimen/_10sdp" />
-
-        <EditText
-            android:id="@+id/editTextFeature2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
-            android:background="@drawable/edittext_border"
-            android:ems="15"
-            android:hint="Insert another feature"
-            android:inputType="text"
-            android:paddingLeft="@dimen/_10sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextFeature1"
+            app:layout_constraintBottom_toTopOf="@+id/editTextFeature1"
+            app:layout_constraintTop_toBottomOf="@+id/editTextFalsePrice"
             tools:layout_editor_absoluteX="8dp" />
 
         <EditText
@@ -168,19 +169,21 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextPrice"
             tools:layout_editor_absoluteX="8dp" />
 
+
         <EditText
-            android:id="@+id/editTextPrice"
+            android:id="@+id/editTextFeature2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
             android:layout_marginBottom="@dimen/_15sdp"
             android:background="@drawable/edittext_border"
             android:ems="15"
-            android:hint="Price"
-            android:inputType="number"
+            android:hint="Insert another feature"
+            android:inputType="text"
             android:paddingLeft="@dimen/_10sdp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextFeature1"
-            app:layout_constraintTop_toBottomOf="@+id/editTextFalsePrice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextFeature1"
             tools:layout_editor_absoluteX="8dp" />
+
 
     </LinearLayout>
 

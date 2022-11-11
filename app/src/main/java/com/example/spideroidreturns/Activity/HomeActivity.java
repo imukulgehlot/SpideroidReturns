@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.spideroidreturns.Adapter.RecyclerHomeItemsAdapter;
 import com.example.spideroidreturns.Model.HomeItemsModel;
 import com.example.spideroidreturns.R;
+import com.example.spideroidreturns.Service.MPlayerServices;
 
 import java.util.ArrayList;
 
@@ -48,15 +49,25 @@ public class HomeActivity extends AppCompatActivity {
         arrHomeItems.add(new HomeItemsModel("Fragmentation"));
         arrHomeItems.add(new HomeItemsModel("SQLite Database"));
         arrHomeItems.add(new HomeItemsModel("Geocoder"));
-        arrHomeItems.add(new HomeItemsModel("Media Player"));
-        arrHomeItems.add(new HomeItemsModel("Sensors"));
+        arrHomeItems.add(new HomeItemsModel("WebView"));
         arrHomeItems.add(new HomeItemsModel("Services"));
+        arrHomeItems.add(new HomeItemsModel("Sensors"));
+        arrHomeItems.add(new HomeItemsModel("Media Player"));
         arrHomeItems.add(new HomeItemsModel("Firebase Stuff"));
         arrHomeItems.add(new HomeItemsModel("APIs Implementation"));
 
         RecyclerHomeItemsAdapter recyclerHomeItemsAdapter = new RecyclerHomeItemsAdapter(context, arrHomeItems, position -> {
-            if (position >= 0) {
+            Boolean isServiceOn = false;
+            if (position >= 0 && position != 7) {
                 startActivity(new Intent(context, HomeItemActivity.class).putExtra("position", position));
+            } else if (position == 7) {
+                if (!isServiceOn) {
+                    startService(new Intent(context, MPlayerServices.class));
+                    isServiceOn = true;
+                } else if (isServiceOn) {
+                    isServiceOn = false;
+                    stopService(new Intent(context, MPlayerServices.class));
+                }
             }
         });
 
